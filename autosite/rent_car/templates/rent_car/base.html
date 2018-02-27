@@ -1,0 +1,82 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <meta charset="UTF-8">
+    <title>Аренда автомобилей</title>
+    <script>
+        $(document).ready(function() { // вся мaгия пoсле зaгрузки стрaницы
+
+	$('a.go').click( function(event){ // лoвим клик пo ссылки с id="go"
+		event.preventDefault(); // выключaем стaндaртную рoль элементa
+		overlay();
+	});
+
+    function overlay() {
+        $('#overlay').fadeIn(400, // снaчaлa плaвнo пoкaзывaем темную пoдлoжку
+		 	function(){ // пoсле выпoлнения предъидущей aнимaции
+				$('.modal_form')
+					.css('display', 'block') // убирaем у мoдaльнoгo oкнa display: none;
+					.animate({opacity: 1, top: '50%'}, 200); // плaвнo прибaвляем прoзрaчнoсть oднoвременнo сo съезжaнием вниз
+		});
+    };
+
+
+	/* Зaкрытие мoдaльнoгo oкнa, тут делaем тo же сaмoе нo в oбрaтнoм пoрядке */
+	$('#modal_close, #overlay').click( function(){ // лoвим клик пo крестику или пoдлoжке
+		$('.modal_form')
+			.animate({opacity: 0, top: '45%'}, 200,  // плaвнo меняем прoзрaчнoсть нa 0 и oднoвременнo двигaем oкнo вверх
+				function(){ // пoсле aнимaции
+					$(this).css('display', 'none'); // делaем ему display: none;
+					$('#overlay').fadeOut(400); // скрывaем пoдлoжку
+				}
+			);
+	});
+});
+        var flag1 =true;
+        var flag2 = true;
+        var flag3 = true;
+	    function openclose(id) {
+            if (id == 1)
+	            if(flag1==true) {
+	                $(".car[id=1]").slice(4).slideDown();
+	                flag1=!flag1;
+	            } else {
+	                $(".car[id=1]").slice(4).slideUp();
+	                flag1=!flag1;
+            } else if (id == 2)
+	                if(flag2==true) {
+	                    $(".car[id=2]").slice(4).slideDown();
+	                    flag2=!flag2;
+	                 } else {
+	                $(".car[id=2]").slice(4).slideUp();
+	                flag2=!flag2;}
+
+               else if(flag3==true) {
+	                $(".car[id=3]").slice(4).slideDown();
+	                flag3=!flag3;
+	            } else {
+	                $(".car[id=3]").slice().slideUp();
+	                flag3=!flag3;
+	            }
+	    };
+    </script>
+
+</head>
+<header>
+    {% block header %}
+    {% endblock %}
+</header>
+<body>
+    {% block content %}
+    {% endblock %}
+</body>
+<footer>
+    {% block footer %}
+    {% endblock %}
+</footer>
+</html>

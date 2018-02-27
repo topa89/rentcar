@@ -1,0 +1,31 @@
+{% extends 'rent_car/base.html' %}
+{% block header %}
+   <div class="header-menu">
+        <div class="header-logo">
+            RENTCAR
+        </div>
+        <div class="header-phone">
+            <div>891620301267</div>
+        </div>
+        <ul class="header-navbar">
+            <li class="nav-main"><a href="/">Арендовать машину</a></li>
+            <li class="nav-main"><a href="info">Информация</a></li>
+        </ul>
+    <ul class="menu">
+        <li><a href=#>Меню</a>
+            <ul class="submenu">
+             <li class="nav-main"><a href="/">Арендовать машину</a></li>
+                <li class="nav-main"><a href="rent_car/information.html">Информация</a></li>
+            </ul>
+        </li>
+    </ul>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}
+
+{% block footer %}
+     {% include 'rent_car/footer.html' %}
+{% endblock %}

@@ -1,0 +1,306 @@
+.header-menu{
+    width: 100%;
+    height: 50px;
+    background-color: #555
+}
+.header-logo {
+    float: left;
+    margin-left: 30px;
+    font-size: 28px;
+    color: white;
+    padding-top: 5px;
+}
+.menu {
+    display:none
+}
+.header-phone {
+    float: left;
+    font-size: 16px;
+    color: white;
+    padding-top: 15px;
+    padding-left: 30px;
+}
+
+.header-navbar {
+    float: right;
+    margin: 0;
+    padding-top: 15px;
+    list-style-type: none;
+    padding-right: 120px;
+}
+
+.nav-main { display: inline; margin: 20px }
+
+.nav-main a { color: white}
+
+.header-title {height: 300px; background-color: gray }
+
+.header-title h1 {
+    color: white;
+    text-align: center;
+    padding-top: 100px
+}
+
+.header-title h3 {
+    color: white;
+    text-align: center;
+}
+
+.category {
+    margin-top: 50px
+}
+
+.category_title {
+    font-size: 20px;
+    margin-left: 30px;
+}
+
+.special_rent {
+    width: 100%;
+    display: inline-block;
+
+}
+
+.info_site {
+    width: 100%;
+    height: 100px;
+    margin-top: 100px
+}
+
+.car {
+    height: 100%;
+    margin-top: 20px;
+    min-width: 20%;
+    width: 230px;
+    float: left;
+    margin-left: 40px;
+    box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);
+}
+
+.car_picture img {
+    box-shadow: 0.01em 0.01em 1px rgba(122,122,122,0.5);
+}
+
+.car_name {
+    text-align: center;
+    text_decoration: none;
+    color: black
+}
+
+.car_price {
+    text-align: center
+}
+
+.footer {
+    background-color: #555;
+    margin-top: 300px;
+    height: 100px;
+    color: white
+}
+.footer h5 {
+    padding-top: 40px
+}
+
+
+
+.modal_form {
+	width: auto;
+	height: auto; /* Рaзмеры дoлжны быть фиксирoвaны */
+	border-radius: 5px;
+	border: 3px #000 solid;
+	background: #fff;
+	position: fixed; /* чтoбы oкнo былo в видимoй зoне в любoм месте */
+	top: 45%; /* oтступaем сверху 45%, oстaльные 5% пoдвинет скрипт */
+	left: 50%; /* пoлoвинa экрaнa слевa */
+	margin-top: -150px;
+	margin-left: -200px; /* тут вся мaгия центрoвки css, oтступaем влевo и вверх минус пoлoвину ширины и высoты сooтветственнo =) */
+	display: none; /* в oбычнoм сoстoянии oкнa не дoлжнo быть */
+	opacity: 0; /* пoлнoстью прoзрaчнo для aнимирoвaния */
+	z-index: 5; /* oкнo дoлжнo быть нaибoлее бoльшем слoе */
+	padding: 20px 10px;
+}
+/* Кнoпкa зaкрыть для тех ктo в тaнке) */
+.modal_form #modal_close {
+	width: 21px;
+	height: 21px;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+	display: block;
+}
+/* Пoдлoжкa */
+#overlay {
+	z-index:3; /* пoдлoжкa дoлжнa быть выше слoев элементoв сaйтa, нo ниже слoя мoдaльнoгo oкнa */
+	position:fixed; /* всегдa перекрывaет весь сaйт */
+	background-color:#000; /* чернaя */
+	opacity:0.8; /* нo немнoгo прoзрaчнa */
+	-moz-opacity:0.8; /* фикс прозрачности для старых браузеров */
+	filter:alpha(opacity=80);
+	width:100%;
+	height:100%; /* рaзмерoм вo весь экрaн */
+	top:0; /* сверху и слевa 0, oбязaтельные свoйствa! */
+	left:0;
+	cursor:pointer;
+	display:none; /* в oбычнoм сoстoянии её нет) */
+}
+
+    ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+    ul:after {
+        display: block;
+        content: ' ';
+        clear: both;
+        float: none;
+    }
+    ul.menu > li {
+        float: left;
+        position: relative;
+    }
+    ul.menu > li > a {
+        display: block;
+        color: white;
+        text-decoration: none;
+            text-decoration-color: currentcolor;
+            text-decoration-line: none;
+            text-decoration-style: solid;
+        float: left;
+        margin-left: 30px;
+        margin-top: 15px;
+    }
+    ul.menu > li > a:hover {
+        background-color: black;
+    }
+    ul.submenu {
+        display: none;
+        position: absolute;
+        top: 37px;
+        right: -25px;
+        background-color: #555;
+        border: 1px solid #555;
+    }
+    ul.submenu > li {
+        display: block;
+    }
+    ul.submenu > li > a {
+        display: block;
+        padding: 10px;
+        color: white;
+        text-decoration: none;
+    }
+    ul.submenu > li > a:hover {
+        text-decoration: underline;
+    }
+    ul.menu > li:hover > ul.submenu {
+        display: block;
+    }
+
+
+@media screen and (max-width: 320px) {
+
+    .header-logo {
+        float: left;
+        margin-left: 10px;
+        font-size: 16px;
+        color: white;
+        padding-top: 15px;
+    }
+
+    .header-navbar {
+        display: none;
+    }
+    .menu{
+        display: block
+    }
+
+    .category_title {
+        font-size: 18px;
+        margin-top: 20px
+    }
+
+    .header-title {
+        height: 100px;
+    }
+
+    .header-title .container {
+        display: none;
+    }
+    .container h3 b{
+        font-size: 18px
+    }
+    .container p {
+        font-size: 14px
+    }
+    .social img {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .menu {
+        display: block;
+    }
+    .header-navbar {
+        display: none
+    }
+    .header-phone {
+        font-size: 14px
+    }
+    .header-title {
+        height: 180px;
+    }
+
+    .header-logo {
+        font-size: 20px;
+        margin-left: 20px;
+        padding-top: 10px
+    }
+
+    ul, menu > li {
+        float: right;
+        position: relative;
+        margin-right: 20px;
+    }
+}
+
+@media screen and (max-width: 1187px) {
+    .category {
+        height: 500px;
+    }
+    .header-navbar {
+        padding-right: 0px;
+    }
+    #showmore{display: none}
+}
+
+@media screen and (max-width: 620px) {
+    .category {
+        height: 900px
+    }
+    .header-navbar {display: none}
+    .menu {display: block}
+
+    ul.menu > li > a{
+        margin-left: 120px
+    }
+}
+
+.social {
+    float: right;
+    padding-top: 20px
+}
+.social img {
+    margin-left: 10px
+}
+
+.info_site .container {
+    text-align: center;
+    font-size: 18px
+}
+.info_site .container h5 {
+    font-size: 26px
+}

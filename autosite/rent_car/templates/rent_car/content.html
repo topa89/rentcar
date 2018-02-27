@@ -1,0 +1,111 @@
+{% block content %}
+           <div class="modal_form">
+                            <span id="modal_close">X</span>
+                            <form id="POST">
+                               <div class="container">
+                                <b>Закажите звонок у нас</b><br>
+
+                                Фамилия:<br>
+                                <input type="text"><br>
+                                Имя:<br>
+                                <input type="text"><br>
+                                Телефон:<br>
+                                <input type="text"><br><br>
+                                <button type="submit" class="btn btn-primary">Отправить</button>
+                                </div>
+                            </form>
+                        </div>
+<div id="overlay"></div><!-- Пoдлoжкa -->
+    <div class="container">
+        <div class="category" id="1">
+            <div class="category_title">Специальные предложения  <a id="showmore" onclick="openclose(1)" style="float: right; font-size:18px">Показать больше</a>
+    </div>
+                <div class="special_rent">
+                    {% for car in cars_special %}
+
+                    <a class="go">
+                    <div id="overlay"></div><!-- Пoдлoжкa -->
+                    {% if car not in cars_special|slice:":4" %}
+                        <div class="car"  id="1" style="display: none">
+                            <div class="car_picture"><img src="/media/{{car.image}}" alt="{{ car.mark }} {{ car.model }}" width="230" height="150"></div>
+                            <div class="car_name">{{ car.mark }} {{ car.model }}    </div>
+                            <div class="car_price"><b>{{ car.price }}р</b> в сутки</div>
+                        </div>
+                    </a>
+                    {% else %}
+                        <div class="car" id="1">
+                            <div class="car_picture"><img src="media/{{car.image}}" alt="{{ car.mark }} {{ car.model }}" width="230" height="150"></div>
+                            <div class="car_name">{{ car.mark }} {{ car.model }}    </div>
+                            <div class="car_price"><b>{{ car.price }}р</b> в сутки</div>
+                        </div>
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+
+        </div>
+        <div class="category" id="2">
+            <div class="category_title">Бюджетные<a id="showmore" onclick="openclose(2)" style="float: right">Показать больше</a></div>
+                 <div class="special_rent">
+                    {% for car in cars_chip %}
+
+                    <a class="go">
+
+                    <div id="overlay"></div><!-- Пoдлoжкa -->
+                     {% if car not in cars_chip|slice:":4" %}
+                        <div class="car" id="2" style="display: none">
+                            <div class="car_picture"><img src="media/{{car.image}}" alt="{{ car.mark }} {{ car.model }}" width="230" height="150"></div>
+                            <div class="car_name">{{ car.mark }} {{ car.model }}</div>
+                            <div class="car_price"><b>{{ car.price }}р</b> в сутки</div>
+                        </div>
+                    </a>
+                     {% else %}
+
+                        <div class="car" id="2">
+                            <div class="car_picture"><img src="media/{{car.image}}" alt="{{ car.mark }} {{ car.model }}" width="230" height="150"></div>
+                            <div class="car_name">{{ car.mark }} {{ car.model }}</div>
+                            <div class="car_price"><b>{{ car.price }}р</b> в сутки</div>
+                        </div>
+                    </a>
+                     {% endif %}
+                    {% endfor %}
+                </div>
+                </div>
+
+
+        <div class="category" id="3">
+            <div class="category_title">Премиум<a id="showmore" onclick="openclose(3)" style="float: right">Показать больше</a></div>
+                 <div class="special_rent">
+                    {% for car in cars_premium %}
+
+                    <a class="go">
+
+                 {% if car not in cars_premium|slice:":4" %}
+                        <div class="car"  id="3" style="display:none">
+                            <div class="car_picture"><img src="media/{{car.image}}" alt="{{ car.mark }} {{ car.model }}" width="230" height="150"></div>
+                            <div class="car_name">{{ car.mark }} {{ car.model }}</div>
+                            <div class="car_price"><b>{{ car.price }}р</b> в сутки</div>
+                        </div>
+                    </a>
+                     {% else %}
+                        <div class="car" id="3">
+                            <div class="car_picture"><img src="media/{{car.image}}" alt="{{ car.mark }} {{ car.model }}" width="230" height="150"></div>
+                            <div class="car_name">{{ car.mark }} {{ car.model }}</div>
+                            <div class="car_price"><b>{{ car.price }}р</b> в сутки</div>
+                        </div>
+                    </a>
+                     {% endif %}
+                    {% endfor %}
+                </div>
+                </div>
+
+        </div>
+    </div>
+   </div>
+   <div class="info_site">
+       <div class="container">
+           <h3><b>Лучший выбор на каждый день - аренда авто</b></h3>
+           <p>Современным бизнесменам сложно обходиться без собственного автомобиля. Даже один день без транспортного средства может повлечь за собой значительные финансовые потери. Допускать их не желает никто и каждый ищет приемлемый выход. На западе подобные проблемы уже много лет не являются причиной головной боли предпринимателей, так как в развитых странах давно существует актуальная и удобная услуга аренды автомобилей. «Icar-прокат» ориентирован на европейские стандарты и предлагает самые выгодные и комфортные варианты разрешения ваших транспортных проблем.</p>
+       </div>
+    </div>
+{% endblock %}
