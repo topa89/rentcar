@@ -73,6 +73,8 @@ class Auto(models.Model):
         default=u'2018'
     )
 
+    description = models.TextField(null=True, verbose_name='Описание')
+
     image = models.FileField(
         u'Изображение',
         blank=True,

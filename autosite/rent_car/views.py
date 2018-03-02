@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,  get_object_or_404
 from .models import Auto
 
 
@@ -12,5 +12,5 @@ def index(request):
     return render(request, 'rent_car/index.html', context)
 
 
-def info(request):
-    return render(request, 'rent_car/information.html')
+def car_info(request, pk):
+    return render(request, 'rent_car/information.html', {"car": Auto.objects.get(pk=pk)})

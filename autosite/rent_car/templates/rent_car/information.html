@@ -1,31 +1,69 @@
-{% extends 'rent_car/base.html' %}
-{% block header %}
-   <div class="header-menu">
-        <div class="header-logo">
-            RENTCAR
+{% extends 'rent_car/base.html' %} {% block content %}
+<div class="container">
+
+    <!-- Portfolio Item Heading -->
+    <h1 class="my-4">{{ car.mark }} {{ car.model }}
+        <small>{{ car.price }} р/сутки</small>
+    </h1>
+
+    <!-- Portfolio Item Row -->
+    <div class="row">
+
+        <div class="col-md-8">
+            <img class="img-fluid" src="/media/{{car.image}}" alt="">
         </div>
-        <div class="header-phone">
-            <div>891620301267</div>
-        </div>
-        <ul class="header-navbar">
-            <li class="nav-main"><a href="/">Арендовать машину</a></li>
-            <li class="nav-main"><a href="info">Информация</a></li>
-        </ul>
-    <ul class="menu">
-        <li><a href=#>Меню</a>
-            <ul class="submenu">
-             <li class="nav-main"><a href="/">Арендовать машину</a></li>
-                <li class="nav-main"><a href="rent_car/information.html">Информация</a></li>
+
+        <div class="col-md-4">
+            <h3 class="my-3">Описание</h3>
+            <p>{{ car.description }}</p>
+            <h3 class="my-3">Детали:</h3>
+            <ul>
+                <li>Двигатель: {{ car.engine }}л</li>
+                {% if car.gears == 1 %}
+                <li>Трансмиссия: Механическая</li>
+                {% else %}
+                <li>Трансмиссия: Автоматическая</li>
+                {% endif %}
+
+                <li>Год выпуска: {{ car.year }}</li>
+                <li>Минимальный стаж(лет): {{ car.experience }}</li>
+                <li>Минимальный возраст(лет):  {{ car.min_age }}</li>
             </ul>
-        </li>
-    </ul>
+            <a href="information/" class="btn btn-primary">Заказать</a>
+        </div>
+
     </div>
-{% endblock %}
 
-{% block content %}
 
-{% endblock %}
+    <h3 class="my-4">Больше фото</h3>
 
-{% block footer %}
-     {% include 'rent_car/footer.html' %}
+    <div class="row">
+
+        <div class="col-md-3 col-sm-6 mb-4">
+            <a href="#">
+                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+            </a>
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-4">
+            <a href="#">
+                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+            </a>
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-4">
+            <a href="#">
+                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+            </a>
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-4">
+            <a href="#">
+                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+            </a>
+        </div>
+
+    </div>
+
+</div>
 {% endblock %}
