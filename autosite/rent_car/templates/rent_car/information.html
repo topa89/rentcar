@@ -1,8 +1,64 @@
 {% extends 'rent_car/base.html' %} {% block content %}
+
+<!-- Modal -->
+<div class="modal fade" id="order_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Оформление заявки</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="form_order" method="POST" action="{% url 'order_adding' %}">{% csrf_token %}
+                    <div class="container">
+                    
+                        <label for="name">Ваше имя:</label>
+                        <input class="form-control" id="name" type="text" placeholder="Иван">
+                        <label for="phone-number">Номер телефона:</label>
+                        <input class="form-control" id="phone-number" type="text" placeholder="8 916 123 45 67">
+                        <label for="exampleFormControlSelect1">Срок аренды</label>
+                        <select class="form-control" id="srok">
+                            <option>1 день</option>
+                            <option>3 дня</option>
+                            <option>7 дней</option>
+                            <option>Больше 7 дней</option>
+                        </select>
+                    </div>
+             
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                <button type="submit" id="submit_btn" class="btn btn-primary">Оформить заявку</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="order_success_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Оформление заявки</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                <button type="button" class="btn btn-primary">Оформить заявку</button>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container">
 
     <!-- Portfolio Item Heading -->
-    <h1 class="my-4">{{ car.mark }} {{ car.model }}
+    <h1 class="my-4"><span  id="car_name">{{ car.mark }} {{ car.model }}</span>
         <small>{{ car.price }} р/сутки</small>
     </h1>
 
@@ -27,9 +83,9 @@
 
                 <li>Год выпуска: {{ car.year }}</li>
                 <li>Минимальный стаж(лет): {{ car.experience }}</li>
-                <li>Минимальный возраст(лет):  {{ car.min_age }}</li>
+                <li>Минимальный возраст(лет): {{ car.min_age }}</li>
             </ul>
-            <a href="information/" class="btn btn-primary">Заказать</a>
+            <a href="information/" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#order_modal">Заказать</a>
         </div>
 
     </div>

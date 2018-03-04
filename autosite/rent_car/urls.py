@@ -6,5 +6,5 @@ app_name = 'project'
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    
+  
 ]

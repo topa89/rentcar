@@ -24,7 +24,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^admin/tables/$', TemplateView.as_view(template_name='admin/tables.html')),
     url(r'^', include('rent_car.urls')),
-   url(r'^car/(?P<pk>\d+)/$', views.car_info, name='car_info'),
+    url(r'^car/(?P<pk>\d+)/$', views.car_info, name='car_info'),
+    url(r'order_adding/$', views.order_adding, name='order_adding'),
 ]
 
 if settings.DEBUG:

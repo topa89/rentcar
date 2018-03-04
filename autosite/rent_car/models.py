@@ -11,7 +11,7 @@ class Category(models.Model):
     class Meta:
         verbose_name_plural = u'Категории авто'
 
-    # Create your models here.
+
 
 
 class MarkAuto(models.Model):
@@ -110,3 +110,14 @@ class Auto(models.Model):
         verbose_name_plural = u'Авто'
 
 
+class Order(models.Model):
+    car = models.CharField(max_length=100, verbose_name=u'Автомобиль')
+    name = models.CharField(max_length=30, verbose_name=u'Имя')
+    phone = models.CharField(max_length=20, verbose_name=u'Номер телефона')
+    deadline = models.CharField(max_length=30, verbose_name=u'Срок аренды')
+
+    def __str__(self):
+        return "{}, {}".format(self.car, self.phone)
+
+    class Meta:
+        verbose_name_plural = u'Заказы'
