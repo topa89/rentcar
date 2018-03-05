@@ -1,5 +1,5 @@
 from django.shortcuts import render,  get_object_or_404
-from .models import Auto
+from .models import Auto, AutoImage
 from django.http import JsonResponse
 from .models import Order
 
@@ -13,7 +13,11 @@ def index(request):
 
 # получить информацию об авто
 def car_info(request, pk):
-    return render(request, 'rent_car/information.html', {"car": Auto.objects.get(pk=pk)})
+    car_list = {
+        "car": Auto.objects.get(pk=pk),
+        "car_img": AutoImage.objects.filter(auto=Auto.objects.get(pk=pk).id),
+        }
+    return render(request, 'rent_car/information.html', car_list)
 
 # заказ 
 def order_adding(request):
@@ -23,5 +27,5 @@ def order_adding(request):
     name = data.get('name')
     phone = data.get('phone')
     srok = data.get('srok')
-    new_order = Order.objects.save(car=car, name=name, phone=phone, deadline=srok)
+    new_order = Order.objects.create(car=car, name=name, phone=phone, deadline=srok)
     return JsonResponse(return_dict)

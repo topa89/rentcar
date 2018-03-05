@@ -1,67 +1,66 @@
 {% extends "rent_car/base.html" %} {% block content %}
-<div class="container">
+<header class="masthead bg-primary text-white text-center">
+<img src="media/bckg.jpg" alt="background">
 
-  <header class="jumbotron my-4">
-    <h1 class="display-3">Приветствуем вас</h1>
-    <p class="lead">Крашеринг никогда не был настолько доступным</p>
+</header>
 
-  </header>
+<div class="container mt-5">
   {% if cars_special %}
-  <h4>Спец предложения</h4>
+  <h1 class="text-center font-weight-light">Специальные предложения</h1>
   <div class="row text-center">
     {% for car in cars_special %}
     <div class="col-lg-3 col-md-6 mb-4">
       <div class="card">
-        <img class="card-img-top" src="/media/{{car.image}}" alt="">
+        <img class="card-img-top" src="/media/{{car.image}}" alt="{{car.image}}">
         <div class="card-body">
-          <h4 class="card-title">{{ car.mark }} {{ car.model }}</h4>
+          <h4 class="card-title font-weight-light">{{ car.mark }}</h4>
           <p class="card-text">Двигатель: {{ car.engine }}</p>
 
           <p class="card-text">Цена: {{ car.price }} р/сутки</p>
         </div>
         <div class="card-footer">
-          <a href="{% url 'car_info' pk=car.pk %}" class="btn btn-primary">Подробнее</a>
+          <a href="{% url 'car_info' pk=car.pk %}" class="btn  btn-warning btn-lg btn-block">Подробнее</a>
         </div>
       </div>
     </div>
     {% endfor %}
   </div>
   {% endif %} {% if cars_chip %}
-  <h4>Бюджетные</h4>
+  <h1 class="text-center font-weight-light mt-5">Бюджетные автомобили</h1>
   <div class="row text-center">
       {% for car in cars_chip %}
       <div class="col-lg-3 col-md-6 mb-4">
         <div class="card">
-          <img class="card-img-top" src="/media/{{car.image}}" alt="">
+          <img class="card-img-top" src="/media/{{car.image}}" alt="{{car.image}}">
           <div class="card-body">
-            <h4 class="card-title">{{ car.mark }} {{ car.model }}</h4>
+            <h4 class="card-title font-weight-light">{{ car.mark }}</h4>
             <p class="card-text">Двигатель: {{ car.engine }}</p>
   
             <p class="card-text">Цена: {{ car.price }} р/сутки</p>
           </div>
           <div class="card-footer">
-            <a href="{% url 'car_info' pk=car.pk %}" class="btn btn-primary">Подробнее</a>
+            <a href="{% url 'car_info' pk=car.pk %}" class="btn  btn-warning btn-lg btn-block">Подробнее</a>
           </div>
         </div>
       </div>
       {% endfor %}
   </div>
   {% endif %} {% if cars_premium %}
-  <h4>Премиум</h4>
+  <h1 class="text-center font-weight-light mt-5">Бизнес-класс</h1>
   <div class="row text-center">
 
       {% for car in cars_premium %}
       <div class="col-lg-3 col-md-6 mb-4">
         <div class="card">
-          <img class="card-img-top" src="/media/{{car.image}}" alt="">
+          <img class="card-img-top" src="/media/{{car.image}}" alt="{{car.image}}">
           <div class="card-body">
-            <h4 class="card-title">{{ car.mark }} {{ car.model }}</h4>
+            <h4 class="card-title font-weight-light">{{ car.mark }}</h4>
             <p class="card-text">Двигатель: {{ car.engine }}</p>
   
             <p class="card-text">Цена: {{ car.price }} р/сутки</p>
           </div>
           <div class="card-footer">
-            <a href="{% url 'car_info' pk=car.pk %}" class="btn btn-primary">Подробнее</a>
+            <a href="{% url 'car_info' pk=car.pk %}" class="btn  btn-warning btn-lg btn-block">Подробнее</a>
           </div>
         </div>
       </div>
@@ -75,8 +74,6 @@
 
 </div>
 
-<!-- /.row -->
 
 </div>
-<!-- /.container -->
 {% endblock %}
