@@ -1,14 +1,62 @@
 {% extends "rent_car/base.html" %} {% block content %}
+<!-- Баннер -->
 <header class="masthead bg-primary text-white text-center">
-<img src="media/bckg.jpg" alt="background">
-
+  <img src="media/bckg.jpg" alt="background" style="width: 100%">
 </header>
 
+<!-- Блок авто -->
 <div class="container mt-5">
-  {% if cars_special %}
-  <h1 class="text-center font-weight-light">Специальные предложения</h1>
   <div class="row text-center">
+    <div class="col-md-4">
+      <span class="fa-stack fa-4x">
+        <i class="fa fa-circle fa-stack-2x text-warning"></i>
+        <i class="fa fa-address-card  fa-stack-1x fa-inverse"></i>
+      </span>
+      <h4 class="service-heading">Простота</h4>
+      <p class="text-muted">Для аренды понадобятся лишь ваши права.</p>
+    </div>
+    <div class="col-md-4">
+      <span class="fa-stack fa-4x">
+        <i class="fa fa-circle fa-stack-2x text-warning"></i>
+        <i class="fa fa-car fa-stack-1x fa-inverse"></i>
+      </span>
+      <h4 class="service-heading">Большой автопарк</h4>
+      <p class="text-muted">Выберите свой из десятка автомобилей нашего автопарка</p>
+    </div>
+    <div class="col-md-4">
+      <span class="fa-stack fa-4x">
+        <i class="fa fa-circle fa-stack-2x text-warning"></i>
+        <i class="fa fa-info fa-stack-1x fa-inverse"></i>
+      </span>
+      <h4 class="service-heading">Тех поддержка</h4>
+      <p class="text-muted">Наши специалисты готовы оказать помощь в любое время.</p>
+    </div>
+  </div>
+
+  {% if cars_special %}
+  <h1 class="text-center font-weight-light mt-5">Специальные предложения</h1>
+  <div class="row text-center mt-3">
     {% for car in cars_special %}
+    <div class="col-lg-3 col-md-6 mb-4">
+      <div class="card">
+        <img class="card-img-top" src="/media/{{car.image}}" alt="{{car.image}}">
+        <div class="card-body">
+          <h4 class="card-title font-weight-light">{{ car.mark }}</h4>
+          <p class="card-text">Двигатель: {{ car.engine }}л</p>
+
+          <p class="card-text">Цена: {{ car.price }} р/сутки</p>
+        </div>
+        <div class="card-footer">
+          <a href="{% url 'car_info' pk=car.pk %}" class="btn  btn-warning btn-lg btn-block">Подробнее</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %} {% if cars_chip %}
+  <h1 class="text-center font-weight-light mt-5">Бюджетные автомобили</h1>
+  <div class="row text-center mt-3">
+    {% for car in cars_chip %}
     <div class="col-lg-3 col-md-6 mb-4">
       <div class="card">
         <img class="card-img-top" src="/media/{{car.image}}" alt="{{car.image}}">
@@ -25,55 +73,77 @@
     </div>
     {% endfor %}
   </div>
-  {% endif %} {% if cars_chip %}
-  <h1 class="text-center font-weight-light mt-5">Бюджетные автомобили</h1>
-  <div class="row text-center">
-      {% for car in cars_chip %}
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card">
-          <img class="card-img-top" src="/media/{{car.image}}" alt="{{car.image}}">
-          <div class="card-body">
-            <h4 class="card-title font-weight-light">{{ car.mark }}</h4>
-            <p class="card-text">Двигатель: {{ car.engine }}</p>
-  
-            <p class="card-text">Цена: {{ car.price }} р/сутки</p>
-          </div>
-          <div class="card-footer">
-            <a href="{% url 'car_info' pk=car.pk %}" class="btn  btn-warning btn-lg btn-block">Подробнее</a>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-  </div>
   {% endif %} {% if cars_premium %}
   <h1 class="text-center font-weight-light mt-5">Бизнес-класс</h1>
-  <div class="row text-center">
+  <div class="row text-center mt-3">
 
-      {% for car in cars_premium %}
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card">
-          <img class="card-img-top" src="/media/{{car.image}}" alt="{{car.image}}">
-          <div class="card-body">
-            <h4 class="card-title font-weight-light">{{ car.mark }}</h4>
-            <p class="card-text">Двигатель: {{ car.engine }}</p>
-  
-            <p class="card-text">Цена: {{ car.price }} р/сутки</p>
-          </div>
-          <div class="card-footer">
-            <a href="{% url 'car_info' pk=car.pk %}" class="btn  btn-warning btn-lg btn-block">Подробнее</a>
-          </div>
+    {% for car in cars_premium %}
+    <div class="col-lg-3 col-md-6 mb-4">
+      <div class="card">
+        <img class="card-img-top" src="/media/{{car.image}}" alt="{{car.image}}">
+        <div class="card-body">
+          <h4 class="card-title font-weight-light">{{ car.mark }}</h4>
+          <p class="card-text">Двигатель: {{ car.engine }}</p>
+
+          <p class="card-text">Цена: {{ car.price }} р/сутки</p>
+        </div>
+        <div class="card-footer">
+          <a href="{% url 'car_info' pk=car.pk %}" class="btn  btn-warning btn-lg btn-block">Подробнее</a>
         </div>
       </div>
-      {% endfor %}
+    </div>
+    {% endfor %}
   </div>
-  {% endif %} 
+  {% endif %}
+</div>
+
+
+<!-- Новости -->
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <h1 class="text-center font-weight-light">Новости</h1>
+      <hr class="my-4">
+    </div>
   </div>
-
 </div>
+<div class="container">
+  <div class="row mt-3">
+    {% for ev_news in news %}
+    <div class="col-lg-4 col-sm-6 portfolio-item">
+      <div class="card h-100">
+        <a href="#">
+          <img class="card-img-top" src="media/{{ ev_news.image }}" alt="">
+        </a>
+        <div class="card-body">
+          <h4 class="card-title">
+            <a href="{% url 'show_news' pk=ev_news.pk %}" class="font-weight-light text-dark">{{ ev_news.title }}</a>
+          </h4>
+        </div>
+      </div>
+
+    </div>
+    {% endfor %}
+
+  </div>
+  <form id="sub_form" method="POST" action="{% url 'sub_adding' %}">{% csrf_token %}
+  <div class="clearfix mt-1">
+    <div class="form-group row float-right">
+     
+        <label for="inputEmail4" class="font-weight-bold">Подписка на новости и акции</label>
+        <div class="input-group mb-3">
+          <input type="email" id="sub-email" class="form-control" style="width: 5em" placeholder="Email" aria-label="Recipient's username" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-outline-secondary bg-warning text-light" >></button>
+          </div>
+        </div>
+    
+    </div>
+  </form>
+    <br>
+    <a class="btn btn-light float-left" href="news/">Все новости →</a>
+  </div>
 </div>
 
-</div>
-
-
-</div>
 {% endblock %}

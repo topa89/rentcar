@@ -1,0 +1,23 @@
+{% extends "rent_car/base.html" %} {% block content %}
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-8">
+            <h1 class="mt-4">{{ news.title }}</h1>
+            <hr>
+            <p>Posted on January 1, 2018 at 12:00 PM</p>
+            <img class="img-fluid rounded" src="/media/{{ news.image }}" alt="{{ news.title }}">
+            <hr>
+
+            <p class="lead">{{ news.text }}</p>
+
+
+
+        </div>
+
+
+    </div>
+    <!-- /.row -->
+
+</div>
+{% endblock %}

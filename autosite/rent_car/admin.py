@@ -1,6 +1,8 @@
 from django.contrib import admin
-from .models import Auto, Category, MarkAuto, Order, AutoImage
-
+from .models import Auto, Category, MarkAuto, AutoImage
+from orders.models import Order
+from news.models import News
+from subscribers.models import Subscribers
 
 class AutoImageInline(admin.TabularInline):
     model = AutoImage
@@ -24,3 +26,5 @@ admin.site.register(Category)
 admin.site.register(MarkAuto)
 admin.site.register(Order)
 admin.site.register(AutoImage, AutoImageAdmin)
+admin.site.register(News)
+admin.site.register(Subscribers)

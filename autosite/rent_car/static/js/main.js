@@ -1,6 +1,7 @@
 
 $(document).ready(function () {
     var form = $('#form_order');
+    var sub_form = $('#sub_form');
 
     form.on('submit', function (e) {
         e.preventDefault();
@@ -13,7 +14,7 @@ $(document).ready(function () {
 
         var csrf_token = $('#form_order [name="csrfmiddlewaretoken"]').val();
         data["csrfmiddlewaretoken"] = csrf_token;
-        var url = form.attr("action");
+        var url = form.attr('action');
 
         $.ajax({
             url: url,
@@ -24,9 +25,30 @@ $(document).ready(function () {
                 $('#order_modal').modal('hide');
                 $('#order_success_modal').modal('show');
             }
-        })
+        });
 
     });
 
+    sub_form.on('submit', function (e) {
+        e.preventDefault();
+
+        var data = {};
+        data.email = $('#sub-email').val();
+        
+        var csrf_token = $('#sub_form [name="csrfmiddlewaretoken"]').val();
+        data['csrfmiddlewaretoken'] = csrf_token;
+        var url = form.attr('action');
+        console.log(data);
+        
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: data,
+            cache: true,
+            success: function(data){
+                alert('ok');
+            }
+        });
+    });
 
 });
