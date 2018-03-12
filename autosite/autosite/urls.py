@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.conf.urls import include, url
+from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
@@ -9,18 +9,18 @@ from news.views import get_news, show_news
 from subscribers.views import sub_adding
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^admin/tables/$', TemplateView.as_view(template_name='admin/tables.html')),
-    url(r'^$', include('rent_car.urls')),
-    url(r'^car/(?P<pk>\d+)/$', views.car_info, name='car_info'),
+    path('admin/', admin.site.urls),
+    #url(r'^admin/tables/$', TemplateView.as_view(template_name='admin/tables.html')),
+    path('', include('rent_car.urls')),
+    path('car/<pk>', views.car_info, name='car_info'),
 
-    url(r'order_adding/$', order_adding, name='order_adding'),
-    url(r'^sub_adding/$', sub_adding, name='sub_adding'),
+    path('order_adding/', order_adding, name='order_adding'),
+    path('sub_adding/', sub_adding, name='sub_adding'),
 
-    url(r'news/$', get_news, name='get_news'),
-    url(r'news/(?P<pk>\d+)/$', show_news, name='show_news' ),
+    path('news/', get_news, name='get_news'),
+    path('news/<pk>', show_news, name='show_news' ),
 
-    url(r'contacts/', views.contacts, name='contacts'),
+    path('contacts/', views.contacts, name='contacts'),
 
 ]
 

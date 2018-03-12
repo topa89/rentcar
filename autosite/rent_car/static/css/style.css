@@ -5,3 +5,11 @@ hr.my-4 {
     border-bottom: 2px solid #FFC107;
     width: 10em;
 }
+
+.card {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn.btn-warning.btn-lg.btn-block{
+    color: white;
+}

@@ -37,7 +37,7 @@ $(document).ready(function () {
         
         var csrf_token = $('#sub_form [name="csrfmiddlewaretoken"]').val();
         data['csrfmiddlewaretoken'] = csrf_token;
-        var url = form.attr('action');
+        var url = sub_form.attr('action');
         console.log(data);
         
         $.ajax({
