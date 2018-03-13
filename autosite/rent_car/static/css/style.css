@@ -13,3 +13,7 @@ hr.my-4 {
 .btn.btn-warning.btn-lg.btn-block{
     color: white;
 }
+
+#emailinput {
+    width: 1em;
+}

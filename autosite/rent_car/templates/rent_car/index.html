@@ -59,6 +59,7 @@
       </div>
     </div>
     {% endfor %}
+    <a class="btn btn-light float-left" href="news/">Больше →</a>
   </div>
   {% endif %} {% if cars_chip %}
   <div class="container mt-5">
@@ -86,6 +87,7 @@
       </div>
     </div>
     {% endfor %}
+    <a class="btn btn-light float-left" href="news/">Больше →</a>
   </div>
   {% endif %} {% if cars_premium %}
   <div class="container mt-5">
@@ -116,12 +118,13 @@
     {% endfor %}
   </div>
   {% endif %}
+  
 </div>
 
 
 <!-- Новости -->
 
-<div class="container mt-5">
+<div class="container mt-5" id="newsblock">
   <div class="row">
     <div class="col-lg-12 text-center">
       <h1 class="text-center font-weight-light">Новости</h1>
@@ -148,18 +151,16 @@
     {% endfor %}
 
   </div>
-  <form id="sub_form" method="POST" action="{% url 'sub_adding' %}">{% csrf_token %}
+  <form method="POST" action="{% url 'addSub' %}" role="form">{% csrf_token %}
   <div class="clearfix mt-1">
     <div class="form-group row float-right">
-     
         <label for="inputEmail4" class="font-weight-bold">Подписка на новости и акции</label>
         <div class="input-group mb-3">
-          <input type="email" id="sub-email" class="form-control" style="width: 5em" placeholder="Email" aria-label="Recipient's username" aria-describedby="basic-addon2">
+          {{ form.email }}
           <div class="input-group-append">
             <button type="submit" class="btn btn-outline-secondary bg-warning text-light" >></button>
           </div>
         </div>
-    
     </div>
   </form>
     <br>

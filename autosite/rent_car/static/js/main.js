@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
     var form = $('#form_order');
-    var sub_form = $('#sub_form');
+
 
     form.on('submit', function (e) {
         e.preventDefault();
@@ -21,7 +21,7 @@ $(document).ready(function () {
             type: 'POST',
             data: data,
             cache: true,
-            success: function(data){
+            success: function (data) {
                 $('#order_modal').modal('hide');
                 $('#order_success_modal').modal('show');
             }
@@ -29,26 +29,16 @@ $(document).ready(function () {
 
     });
 
-    sub_form.on('submit', function (e) {
-        e.preventDefault();
-
-        var data = {};
-        data.email = $('#sub-email').val();
-        
-        var csrf_token = $('#sub_form [name="csrfmiddlewaretoken"]').val();
-        data['csrfmiddlewaretoken'] = csrf_token;
-        var url = sub_form.attr('action');
-        console.log(data);
-        
-        $.ajax({
-            url: url,
-            type: 'POST',
-            data: data,
-            cache: true,
-            success: function(data){
-                alert('ok');
-            }
-        });
+    $('.popup-link').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        gallery: {
+            enabled: true,
+        },
+        zoom: {
+            enabled: true,
+            duration: 300
+        }
     });
 
 });

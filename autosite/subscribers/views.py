@@ -1,12 +1,16 @@
-from django.shortcuts import render
-from django.http import JsonResponse
+from django.shortcuts import render, redirect
+from django.views.decorators.http import require_POST
 
+from rent_car.views import index
 from .models import Subscribers
+from .forms import SubscriberForm
 
-def sub_adding(request):
-    return_dict = dict()
-    data = request.POST
-    email = data.get('email')
-   
-    new_sub = Subscribers.objects.create(email=email) 
-    return JsonResponse(return_dict)
+@require_POST
+def addSub(request):
+    form = SubscriberForm(request.POST)
+
+    if form.is_valid():
+        new_sub = Subscribers(email=request.POST['email'])
+        new_sub.save()
+
+    return redirect('/')

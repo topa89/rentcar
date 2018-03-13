@@ -30,7 +30,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
-                <button type="submit" id="submit_btn" class="btn btn-primary">Оформить заявку</button>
+                <button type="submit" id="submit_btn" class="btn btn-warning text-light">Оформить заявку</button>
             </div>
         </form>
         </div>
@@ -49,7 +49,7 @@
                 <p>В ближайшее время операторы свяжутся с вами.</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">ОК</button>
+                <button type="button" class="btn btn-warning" data-dismiss="modal">ОК</button>
             </div>
         </div>
     </div>
@@ -66,7 +66,6 @@
         <div class="col-md-8">
             <img class="img-fluid" src="/media/{{car.image}}" alt="">
         </div>
-
         <div class="col-md-4">
             <h3 class="my-3">Описание</h3>
             <p>{{ car.description }}</p>
@@ -83,7 +82,7 @@
                 <li>Минимальный стаж(лет): {{ car.experience }}</li>
                 <li>Минимальный возраст(лет): {{ car.min_age }}</li>
             </ul>
-            <a href="information/" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#order_modal">Заказать</a>
+            <a href="information/" class="btn btn-warning btn-lg btn-block" data-toggle="modal" data-target="#order_modal">Заказать</a>
         </div>
 
     </div>
@@ -93,10 +92,13 @@
 
     <div class="row">
         {% for car in car_img %}
+    
         <div class="col-md-3 col-sm-6 mb-4">
-            <a href="#">
+                <div class="popup-link">
+            <a href="/media/{{ car.image }}">
                 <img class="img-fluid" src="/media/{{ car.image }}" alt="{{ car.image }}">
             </a>
+        </div>
         </div>
         {% endfor %}
 

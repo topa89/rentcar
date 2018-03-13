@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from .models import Order
+from rent_car.views import index
 
 # заказ 
 def order_adding(request):

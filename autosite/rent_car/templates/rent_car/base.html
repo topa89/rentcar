@@ -13,7 +13,7 @@
     <!-- Bootstrap core CSS -->
     <link href="{% static "vendor/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
 
-  
+    <link href="{% static "magnific-popup.css" %}" rel="stylesheet">
     <link href="{% static "css/heroic-features.css" %}" rel="stylesheet">
     <link href="{% static "css/style.css" %}" rel="stylesheet">
     <link href="{% static "font-awesome/css/font-awesome.min.css" %}" rel="stylesheet">
@@ -31,6 +31,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                  <a class="nav-link" href="news/">Новости</a>
+                </li>
             <li class="nav-item">
               <a class="nav-link" href="about/">О компании</a>
             </li>
@@ -54,24 +57,61 @@
           <a href="about/"><p class="m-0 text-white">О нас</p></a>
         </div>
         <div class="col">
-            <p class="m-0 text-white">Условия аренды</p>
+            <a class="m-0 text-white" data-toggle="modal" data-target="#termsLease">Условия аренды</a>
             <p class="m-0 text-white">Пользовательское соглашение</p>
             <p class="m-0 text-white">Юридическая информация</p>
           </div>
           <div class="col">
               <p class="m-0 text-white">Стать участником</p>
               <p class="m-0 text-white">Выкуп авто</p>
-              <p class="m-0 text-white">Аренда авто</p>
+              <a href="/"><p class="m-0 text-white">Аренда авто</p></a>
             </div>
           </div>
           
         </div>
       </footer>
-  
+   
+        
+        <!-- Modal -->
+        <div class="modal fade" id="termsLease" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Условия аренды</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  <ul><p>Арендодатель обязан:</p>   
+                  <li>Своевременно передать Арендатору указанное в разделе 1 транспортное средство в состоянии и 
+                  комплектности,  отвечающем  условиям  договора      и  предоставить  необходимые  для  его  эксплуатации 
+                  документы (о чем указывается в акте приема - передачи транспортного средства);  </li><br>
+                  <li>Обеспечивать автомобиль перед его передачей в аренду ГСМ и топливом. При этом, лампочка уровня 
+                  топлива не должна мигать или гореть.</li> <br>
+                  <li>Полис ОСАГО должен включать в себя возможность управления Арендатором передав
+                  аемым ТС.</li><br> 
+                  <li>Поддерживать транспортное   средство   в   технически исправном   состоянии, обеспечивающем 
+                  его  безопасную  эксплуатацию,  осуществлять  текущий      и  капитальный  ремонт  данного  транспортного 
+                  средства, обеспечивать его необходимыми запасными частями и принадлежностями в течение   срока действия 
+                  договора;</li> <br>
+                  <li>В  присутствии  Арендатора,  проверить  исправность  сдаваемого  в  аренду транспортного  средства, а 
+                  также, ознакомить Арендатора с правилами его эксплуатации.</li> <br>
+                  <li>Нести расходы на содержание Автомобиля (до начала и после окончания аренды Автомобиля), его 
+                  страхование (ОСАГО), а также иные расходы, возникающие в связи с его нормальной эксплуатацией (за 
+                  исключением расходов, которые прямо возложены на Арендатора Договором);</li>   <br>
+                  </ul>
+ 
+              </div>
+   
+            </div>
+          </div>
+        </div>
       <!-- Bootstrap core JavaScript -->
       <script src="{% static "vendor/jquery/jquery.min.js" %}"></script>
       <script src="{% static "vendor/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
       <script src="{% static "js/main.js" %}"></script>
+      <script src="{% static "jquery.magnific-popup.js" %}"></script>
   
     </body>
   
