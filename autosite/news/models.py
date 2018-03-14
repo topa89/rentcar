@@ -8,6 +8,9 @@ class News(models.Model):
     def __str__(self):
         return "{}".format(self.title)
 
+    def get_absolute_url(self):
+        return '/news/{}'.format(self.id)
+
     class Meta:
         verbose_name='Новость'
         verbose_name_plural='Новости'    

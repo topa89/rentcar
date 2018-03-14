@@ -8,3 +8,4 @@ def get_news(request):
 def show_news(request, pk):
     news_list = {'news': News.objects.get(pk=pk)}
     return render(request, 'news/news.html', news_list )
+

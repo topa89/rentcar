@@ -46,7 +46,7 @@
     {% for car in cars_special %}
     <div class="col-lg-3 col-md-6 mb-4">
       <div class="card">
-        <img class="card-img-top" src="/media/{{car.image}}" alt="{{car.image}}">
+        <img class="card-img-top" src="/media/{{car.image}}" alt="{{car.image}}"> 
         <div class="card-body">
           <h4 class="card-title font-weight-light">{{ car.mark }}</h4>
           <p class="card-text">Двигатель: {{ car.engine }}л</p>
@@ -137,7 +137,7 @@
     {% for ev_news in news %}
     <div class="col-lg-4 col-sm-6 portfolio-item">
       <div class="card h-100">
-        <a href="#">
+        <a href="{% url 'show_news' pk=ev_news.pk %}">
           <img class="card-img-top" src="media/{{ ev_news.image }}" alt="">
         </a>
         <div class="card-body">
