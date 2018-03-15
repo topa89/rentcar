@@ -28,6 +28,7 @@ urlpatterns = [
 
     path('contacts/', views.contacts, name='contacts'),
     path('api/', include(news_resource.urls)),
+    path('tinymce/', include('tinymce.urls'))
 
 ]
 

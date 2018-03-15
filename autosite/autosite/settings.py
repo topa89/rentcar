@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'rent_car',
     'news',
     'orders',
+    'tinymce',
     'subscribers',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -122,5 +123,6 @@ USE_TZ = True
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media")
 
-
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR + '/static/'

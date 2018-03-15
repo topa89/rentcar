@@ -1,8 +1,9 @@
 from django.db import models
+from tinymce.models import HTMLField
 
 class News(models.Model):
     title = models.CharField(max_length=50, verbose_name=u'Заголовок')
-    text = models.TextField(verbose_name=u'Текст')
+    text = HTMLField()
     image = models.FileField(upload_to='news_files', verbose_name='Картинка')
 
     def __str__(self):

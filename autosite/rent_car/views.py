@@ -7,10 +7,10 @@ def index(request):
     subscriber_form =  SubscriberForm()
 
     context = {
-        'cars_special': Auto.objects.filter(category=1),
-        'cars_chip': Auto.objects.filter(category=2),
-        'cars_premium': Auto.objects.filter(category=3),
-        'news': News.objects.all()[:3],
+        'cars_special': Auto.objects.filter(category=1).order_by('-id'),
+        'cars_chip': Auto.objects.filter(category=2).order_by('-id'),
+        'cars_premium': Auto.objects.filter(category=3).order_by('-id'),
+        'news': News.objects.order_by('-id')[:3],
         'form': subscriber_form,
     }
     return render(request, 'rent_car/index.html', context)
