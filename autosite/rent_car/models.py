@@ -8,6 +8,9 @@ class Category(models.Model):
     def __str__(self):
         return '{}'.format(self.name)
 
+    def get_absolute_url(self):
+        return '/category/{}'.format(self.id)
+
     class Meta:
         verbose_name_plural = u'Категории авто'
 
@@ -86,6 +89,8 @@ class Auto(models.Model):
     def __str__(self):
         return "{}".format(self.mark)
 
+    def get_absolute_url(self):
+        return '/car/{}'.format(self.id)
     class Meta:
         verbose_name_plural = u'Авто'
 

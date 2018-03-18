@@ -17,7 +17,7 @@ news_resource = NewsResource()
 urlpatterns = [
     path('admin/', admin.site.urls),
     #url(r'^admin/tables/$', TemplateView.as_view(template_name='admin/tables.html')),
-    path('', include('rent_car.urls')),
+    path('', views.index, name='index'),
     path('car/<pk>', views.car_info, name='car_info'),
     # обработка заявок
     path('order_adding/', order_adding, name='order_adding'),
@@ -30,7 +30,7 @@ urlpatterns = [
     path('category/<pk>', views.category, name='category'),
 
     path('developers', views.developers, name='developers'),
-    path('contacts/', views.contacts, name='contacts'),
+    path('contacts', views.contacts, name='contacts'),
     path('api/', include(news_resource.urls)),
     path('tinymce/', include('tinymce.urls'))
 

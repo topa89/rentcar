@@ -11,6 +11,9 @@ class News(models.Model):
 
     def get_absolute_url(self):
         return '/news/{}'.format(self.id)
+    # TODO отправлять по email
+    #def save(self):
+    #    print('ok')
 
     class Meta:
         verbose_name='Новость'
