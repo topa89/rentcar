@@ -34,8 +34,8 @@ def get_news(request):
     return render(request, 'news/index.html', context)
 
 
-def show_page_news(request, num):
-    context = {'page': get_page_number(num),}
+def show_page_news(request, pk):
+    context = {'news': get_page_number(int(pk)), 'pages': get_pages_amount(),}
     return render(request, 'news/index.html', context)
 
 

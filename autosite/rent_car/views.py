@@ -25,3 +25,12 @@ def car_info(request, pk):
 
 def contacts(request):
     return render(request, 'rent_car/contacts.html')
+
+def category(request, pk):
+    context = {
+        'cars': Auto.objects.filter(category = pk).order_by('-id')
+    }
+    return render(request, 'rent_car/cars_category.html', context)
+
+def developers(request):
+    return render(request, 'rent_car/developers.html')

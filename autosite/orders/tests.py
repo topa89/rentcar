@@ -1,6 +1,8 @@
 from django.test import TestCase
+from django.urls import reverse
 
 from .models import Order
+from .views import order_adding
 
 
 class OrdersTest(TestCase):
@@ -25,6 +27,6 @@ class OrdersTest(TestCase):
 
         self.assertTrue(isinstance(a, Order))
         self.assertEqual(a.__str__(), '{}, {}'.format(a.car, a.phone))
-
+    
     
     # TODO: разобраться с ajax для тестов

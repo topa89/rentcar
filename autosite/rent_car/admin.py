@@ -6,7 +6,7 @@ from subscribers.models import Subscribers
 
 class AutoImageInline(admin.TabularInline):
     model = AutoImage
-
+    
 class AutoImageAdmin (admin.ModelAdmin):
     list_display = [field.name for field in AutoImage._meta.fields]
  
@@ -14,6 +14,7 @@ class AutoImageAdmin (admin.ModelAdmin):
     class Meta:
         model = AutoImage
 
+@admin.register(Auto)
 class AutoAdmin(admin.ModelAdmin):
     list_display = [field.name for field in Auto._meta.fields]
     inlines = [AutoImageInline]
@@ -21,7 +22,6 @@ class AutoAdmin(admin.ModelAdmin):
     class Meta:
         model = Auto
 
-admin.site.register(Auto, AutoAdmin)
 admin.site.register(Category)
 admin.site.register(MarkAuto)
 admin.site.register(Order)

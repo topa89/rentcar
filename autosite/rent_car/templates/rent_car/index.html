@@ -37,7 +37,7 @@
   <div class="container mt-5">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h1 class="text-center font-weight-light">Специальные предложения</h1>
+        <h1 class="text-center font-weight-light"><a href="{% url 'category' pk=1 %}" style="text-decoration: none; color:black">Специальные предложения</a></h1>
         <hr class="my-4">
       </div>
     </div>
@@ -65,7 +65,9 @@
   <div class="container mt-5">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h1 class="text-center font-weight-light">Бюджетные автомобили</h1>
+        
+        <h1 class="text-center font-weight-light"><a href="{% url 'category' pk=2 %}" style="text-decoration: none; color:black">Бюджетные автомобили</a></h1>
+
         <hr class="my-4">
       </div>
     </div>
@@ -127,7 +129,8 @@
 <div class="container mt-5" id="newsblock">
   <div class="row">
     <div class="col-lg-12 text-center">
-      <h1 class="text-center font-weight-light">Новости</h1>
+      <h1 class="text-center font-weight-light"><a href="{% url 'get_news'%}" style="text-decoration: none; color:black">Новости</a></h1>
+
       <hr class="my-4">
     </div>
   </div>
@@ -164,7 +167,7 @@
     </div>
   </form>
     <br>
-    <a class="btn btn-light float-left" href="news/">Все новости →</a>
+    <a class="btn btn-light float-left" href="{% url 'get_news' %}">Все новости →</a>
   </div>
 </div>
 

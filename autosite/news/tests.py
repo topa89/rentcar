@@ -3,9 +3,10 @@ from django.urls import reverse
 
 from .models import News
 
-from .views import show_news, get_news
+from .views import show_news, get_news, show_page_news
 
 class NewsTest(TestCase):
+    @classmethod
     def create_tiding(self, title='test tiding', text='test text', image='test_img'):
         return News.objects.create(
             title=title,
@@ -33,3 +34,11 @@ class NewsTest(TestCase):
 
         self.assertEqual(reverse('show_news', args=[a.id]), a.get_absolute_url())
         self.assertEqual(resp.status_code, 200)
+
+   # def test_show_page_news(self):
+    #    a = self.create_tiding()
+     #   url = reverse('show_news', args=[a.id])
+      #  resp = self.client.get(url)
+        #self.assertEqual(resp.status_code, 200)
+        
+        
