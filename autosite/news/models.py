@@ -1,5 +1,8 @@
 from django.db import models
+from django.core.mail import send_mail
+
 from tinymce.models import HTMLField
+from subscribers.models import Subscribers
 
 class News(models.Model):
     title = models.CharField(max_length=50, verbose_name=u'Заголовок')
@@ -11,9 +14,28 @@ class News(models.Model):
 
     def get_absolute_url(self):
         return '/news/{}'.format(self.id)
-    # TODO отправлять по email
-    #def save(self):
-    #    print('ok')
+
+    def to_json(self):
+        return {
+            'title': self.title,
+            'text': self.text,
+            'url': self.get_absolute_url()
+        }
+
+    def save(self, *args, **kwargs):
+        super(News, self).save(*args, **kwargs)
+        lst =  Subscribers.objects.all()
+        sub_list=[]
+        for x in lst:
+            sub_list.append(x.email)
+
+        send_mail(
+            'Аренда авто Новости',
+            self.title + '\n' + self.text,
+            'from@xsx.tim',
+            sub_list,
+            fail_silently=False,
+        )
 
     class Meta:
         verbose_name='Новость'
