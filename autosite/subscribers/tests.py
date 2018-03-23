@@ -6,9 +6,8 @@ from .forms import SubscriberForm
 class SubscriberTests(TestCase):
     # models
     @classmethod
-    def create_subscribers(self, email = 'er@ya.com'):
-        return Subscribers.objects.create(email = email)
-    
+    def create_subscribers(self, email='er@ya.com'):
+        return Subscribers.objects.create(email=email)
     def test_create_subscribers(self):
         a = self.create_subscribers()
 

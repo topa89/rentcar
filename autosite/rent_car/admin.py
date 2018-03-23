@@ -6,10 +6,8 @@ from subscribers.models import Subscribers
 
 class AutoImageInline(admin.TabularInline):
     model = AutoImage
-    
 class AutoImageAdmin (admin.ModelAdmin):
     list_display = [field.name for field in AutoImage._meta.fields]
- 
 
     class Meta:
         model = AutoImage

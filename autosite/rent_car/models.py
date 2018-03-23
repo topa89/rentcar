@@ -1,4 +1,3 @@
-
 from django.db import models
 
 
@@ -95,15 +94,15 @@ class Auto(models.Model):
         verbose_name_plural = u'Авто'
 
 class AutoImage(models.Model):
-    auto = models.ForeignKey(Auto, blank=True, null=True, default=None, on_delete=models.CASCADE )
+    auto = models.ForeignKey(Auto,
+                             blank=True,
+                             null=True,
+                             default=None,
+                             on_delete=models.CASCADE)
     image = models.ImageField(upload_to='auto')
 
     def __str__(self):
         return "%s" % self.auto
-    
     class Meta:
         verbose_name = 'Фотографии'
         verbose_name_plural = 'Фотографии'
-
-
-

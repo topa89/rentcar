@@ -1,9 +1,9 @@
-from django.shortcuts import render,  get_object_or_404
+from django.shortcuts import render
 from django.core.cache.backends.base import DEFAULT_TIMEOUT
 from django.views.decorators.cache import cache_page
 from django.conf import settings
 
-from .models import Auto, AutoImage, Category
+from .models import Auto, AutoImage
 from news.models import News
 from subscribers.forms import SubscriberForm
 
@@ -12,7 +12,7 @@ CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
 
 @cache_page(CACHE_TTL)
 def index(request):
-    subscriber_form =  SubscriberForm()
+    subscriber_form = SubscriberForm()
 
     context = {
         'cars_special': Auto.objects.filter(category=1).order_by('-id'),
@@ -36,7 +36,7 @@ def contacts(request):
 
 def category(request, pk):
     context = {
-        'cars': Auto.objects.filter(category = pk).order_by('-id')
+        'cars': Auto.objects.filter(category=pk).order_by('-id')
     }
     return render(request, 'rent_car/cars_category.html', context)
 

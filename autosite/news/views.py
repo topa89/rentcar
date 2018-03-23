@@ -1,14 +1,14 @@
 import math
-from django.shortcuts import render,  get_object_or_404
+from django.shortcuts import render
 
 from .models import News
 
 def get_pages_amount():
     pages_content = {}
     news = News.objects.order_by('-id')
-  
     count_news = News.objects.count()
-    pages = math.ceil(count_news / 12) # число отображаемого контента задается здесь 
+    # число отображаемого контента задается здесь
+    pages = math.ceil(count_news / 12)
     pages_count = 0
 
     for i in range(1, pages+1):
@@ -24,9 +24,6 @@ def get_page_number(num):
 
 
 def get_news(request):
-    news = News.objects.all()
-    page = get_pages_amount()
-
     context = {
         'news': get_page_number(1),
         'pages': get_pages_amount(),
@@ -35,11 +32,11 @@ def get_news(request):
 
 
 def show_page_news(request, pk):
-    context = {'news': get_page_number(int(pk)), 'pages': get_pages_amount(),}
+    context = {'news': get_page_number(int(pk)), 'pages': get_pages_amount()}
     return render(request, 'news/index.html', context)
 
 
 def show_news(request, pk):
     context = {'news': News.objects.get(pk=pk)}
-    return render(request, 'news/news.html', context )
+    return render(request, 'news/news.html', context)
 

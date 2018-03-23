@@ -24,8 +24,8 @@ class News(models.Model):
 
     def save(self, *args, **kwargs):
         super(News, self).save(*args, **kwargs)
-        lst =  Subscribers.objects.all()
-        sub_list=[]
+        lst = Subscribers.objects.all()
+        sub_list = []
         for x in lst:
             sub_list.append(x.email)
 
@@ -38,6 +38,6 @@ class News(models.Model):
         )
 
     class Meta:
-        verbose_name='Новость'
-        verbose_name_plural='Новости'
-        ordering = ["-id"]    
+        verbose_name = 'Новость'
+        verbose_name_plural = 'Новости'
+        ordering = ["-id"]   

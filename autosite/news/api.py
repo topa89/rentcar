@@ -1,5 +1,4 @@
 from tastypie.resources import ModelResource
-from tastypie.constants import ALL
 from .models import News
 
 class NewsResource(ModelResource):

@@ -8,5 +8,5 @@ class Subscribers(models.Model):
         return '%s' % (self.email)
 
     class Meta:
-        verbose_name='Подписчик'
-        verbose_name_plural='Подписчики'
+        verbose_name = 'Подписчик'
+        verbose_name_plural = 'Подписчики'
