@@ -52,14 +52,14 @@
         <div class="container">
           <div class="row">
             <div class="col">
-          <a href="news/"><p class="m-0 text-white">Новости</p></a>
-          <a href="contacts/"><p class="m-0 text-white">Контакты</p></a>
+          <a href="{% url 'get_news' %}"><p class="m-0 text-white">Новости</p></a>
+          <a href="{% url 'contacts' %}"><p class="m-0 text-white">Контакты</p></a>
           <a href="about/"><p class="m-0 text-white">О нас</p></a>
         </div>
         <div class="col">
             <a class="m-0 text-white" data-toggle="modal" data-target="#termsLease">Условия аренды</a>
-            <p class="m-0 text-white">Пользовательское соглашение</p>
-            <p class="m-0 text-white">Юридическая информация</p>
+            <p class="m-0 text-white" data-toggle="modal" data-target="#termsLease">Пользовательское соглашение</p>
+            <p class="m-0 text-white" data-toggle="modal" data-target="#termsLease">Юридическая информация</p>
           </div>
           <div class="col">
               <a href="{% url 'developers' %}"><p class="m-0 text-white">Для разработчиков</p></a>

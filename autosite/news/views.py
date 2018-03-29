@@ -2,7 +2,8 @@ import math
 from django.shortcuts import render
 
 from .models import News
-
+from random import sample
+# пагинатор
 def get_pages_amount():
     pages_content = {}
     news = News.objects.order_by('-id')
@@ -17,12 +18,12 @@ def get_pages_amount():
 
     return pages_content
 
-
+# получить номер страницы новости
 def get_page_number(num):
     page = get_pages_amount()
     return page[num]
 
-
+# получить новости
 def get_news(request):
     context = {
         'news': get_page_number(1),
@@ -30,13 +31,17 @@ def get_news(request):
         }
     return render(request, 'news/index.html', context)
 
-
+# получить номер страницы новости
 def show_page_news(request, pk):
-    context = {'news': get_page_number(int(pk)), 'pages': get_pages_amount()}
+    context = {'news': get_page_number(int(pk)),
+               'pages': get_pages_amount()}
     return render(request, 'news/index.html', context)
 
-
+# показать новость и  еще рандомные новости
 def show_news(request, pk):
-    context = {'news': News.objects.get(pk=pk)}
+    count = News.objects.all().count()
+    rand_news = sample(range(1, count), 10)
+    context = {'news': News.objects.get(pk=pk),
+               'more_news': News.objects.filter(id__in=rand_news).exclude(pk=pk)}
     return render(request, 'news/news.html', context)
 

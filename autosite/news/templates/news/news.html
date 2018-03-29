@@ -1,22 +1,27 @@
 {% extends "rent_car/base.html" %} {% block content %}
-<div class="container">
 
+<div class="container pt-5 pb-5">
     <div class="row">
-        <div class="col-lg-8">
-            <h1 class="mt-4">{{ news.title }}</h1>
-            <hr>
-            <img class="img-fluid rounded" src="/media/{{ news.image }}" alt="{{ news.title }}">
-            <hr>
-
-            <p class="lead">{{ news.text|safe }}</p>
-
-
-
+        <div class="col-sm-8">
+            <div class="row px-3 py-2">
+                <h2>{{ news.title }}</h2>
+            </div>
+            <img class="img-fluid rounded" src="/media/{{ news.image }}" alt="{{ news.title }}"> {{ news.text|safe }}
         </div>
-
-
+        <!-- /.col-sm-8 -->
+        <div class="col-sm-4">
+            <p class="text-center">Смотрите также:</p>
+            <div class="card" style="height: 40em">
+                <ul class="list-group list-group-flush">
+                    {% for tiding in more_news %}
+                    <a class="text-dark list-group-item" href="{% url 'show_news' pk=tiding.pk %}"><li style="list-style-type: none">{{ tiding.title }}</li></a>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <!-- /.col-sm-4 -->
     </div>
     <!-- /.row -->
-
 </div>
+<!-- /.container -->
 {% endblock %}
